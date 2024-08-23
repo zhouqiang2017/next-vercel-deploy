@@ -1,0 +1,25 @@
+#!/bin/sh
+
+echo 'lint start -------------'
+# 先执行一次 eslint --fix
+npm run lint
+
+# 获取当前提交的所有文件名
+STAGE_FILES=$(git diff --cached --name-only -- '*')
+echo $STAGE_FILES
+
+# 如果在 eslint --fix 中有被fix的文件 则再次 add 到暂存区
+git add $STAGE_FILES
+
+# 执行 eslint 检测是否有不能被fix的代码
+eslint_output=$(npx next lint)
+
+# 如果有 errors 需要手动修改并且中止commit
+if [ $? -ne 0 ]; then
+  echo "ESLint has detected errors. Please fix them before committing."
+  exit 1
+fi
+
+# 没有 errors 则commit
+exit 0
+

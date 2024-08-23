@@ -31,6 +31,9 @@ devDependencies:
   eslint-config-next:
     specifier: 14.2.6
     version: 14.2.6(eslint@8.0.0)(typescript@5.0.2)
+  husky:
+    specifier: ^9.1.5
+    version: 9.1.5
   postcss:
     specifier: ^8
     version: 8.0.0
@@ -1515,6 +1518,12 @@ packages:
     engines: {node: '>= 0.4'}
     dependencies:
       function-bind: 1.1.2
+    dev: true
+
+  /husky@9.1.5:
+    resolution: {integrity: sha512-rowAVRUBfI0b4+niA4SJMhfQwc107VLkBUgEYYAOQAbqDCnra1nYh83hF/MDmhYs9t9n1E3DuKOrs2LYNC+0Ag==}
+    engines: {node: '>=18'}
+    hasBin: true
     dev: true
 
   /ignore@4.0.6:

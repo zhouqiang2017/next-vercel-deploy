@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint --fix",
-    "prepare": "npx husky install && chmod +x .husky/pre-commit"
+    "lint": "next lint"
   },
   "dependencies": {
     "next": "14.2.6",
